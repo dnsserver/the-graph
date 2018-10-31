@@ -7,3 +7,4 @@ npm-debug.log
 /spec/temp/
 /coverage
 package-lock.json
+.DS_Store

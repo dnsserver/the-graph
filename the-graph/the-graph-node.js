@@ -141,6 +141,11 @@ module.exports.register = function (context) {
       if (this.props.export) {
         this.props.graph.startTransaction('moveexport');
       } else {
+        if(this.state.moving === true){
+          this.setState({moving: false});
+          this.setState({lastTrackX: null, lastTrackY: null});
+          this.props.graph.endTransaction("movenode");
+        }
         this.props.graph.startTransaction('movenode');
       }
       this.setState({ moving: true });
