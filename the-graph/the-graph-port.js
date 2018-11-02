@@ -43,9 +43,9 @@ module.exports.register = function (context) {
     mixins: [
       TooltipMixin
     ],
-    defaultProps: {
-      allowEdgeStart: true,
-    },
+    // defaultProps: {
+    //   allowEdgeStart: true,
+    // },
     componentDidMount: function () {
       var domNode = ReactDOM.findDOMNode(this);
 
