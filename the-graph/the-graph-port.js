@@ -205,6 +205,8 @@ module.exports.register = function (context) {
 
     }
   }));
-
+  TheGraph.Port.defaultProps = {
+    allowEdgeStart: true
+  };
 
 };
