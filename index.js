@@ -44,6 +44,28 @@ if (typeof window !== 'undefined') {
     window.msRequestAnimationFrame;
 }
 
+/**
+   * Returns offsets for mouse position.
+   *
+   * THis function need to calculate correct offset in case the-graph
+   * used as positioned in not (0, 0) coordinates.
+   *
+   * @param initialElement - event target.
+   * @param upperElement - upper the-graph element (see usages for example).
+   * @returns {{top: number, left: number}}
+   */
+  TheGraph.getOffsetUpToElement = function(initialElement, upperElement) {
+    var offset = {top: 0, left: 0};
+     var offsetParent = initialElement;
+    while (offsetParent != null && offsetParent != upperElement) {
+      offset.left += offsetParent.offsetLeft || 0;
+      offset.top  += offsetParent.offsetTop || 0;
+      offsetParent = offsetParent.parentElement;
+    }
+     return offset;
+  };
+
+  
 // HACK, goes away when everything is CommonJS compatible
 var g = { TheGraph: TheGraph };
 
