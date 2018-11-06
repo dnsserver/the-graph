@@ -42,8 +42,8 @@
       #editor {
         background-color: transparent;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 300;
+        left: 100;
       }
       #nav {
         position: absolute; 
@@ -59,7 +59,7 @@
 
   </head>
   <body>
-
+    <h1> hello there<br/><br/><br/></h1>
     <div id="editor"></div>
 
     <div id="nav"></div>
@@ -176,7 +176,7 @@
           onPanScale: editorPanChanged,
         }
 
-        console.log('render', props);
+        //console.log('render', props);
 
         var editor = document.getElementById('editor');
         editor.width = props.width;

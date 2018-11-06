@@ -6,12 +6,13 @@ var ReactDOM = require('react-dom');
 var Tooltip = {
   showTooltip: function (event) {
     if ( !this.shouldShowTooltip() ) { return; }
-
+    var x = (event.layerX || event.clientX || 0);
+    var y = (event.layerY || event.clientY || 0);
     var tooltipEvent = new CustomEvent('the-graph-tooltip', { 
       detail: {
         tooltip: this.props.label,
-        x: event.clientX,
-        y: event.clientY
+        x: x,
+        y: y
       }, 
       bubbles: true
     });

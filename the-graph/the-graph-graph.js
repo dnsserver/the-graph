@@ -205,9 +205,8 @@ module.exports.register = function (context) {
         event = event.gesture.srcEvent; // unpack hammer.js gesture event 
       }
 
-      var offset = TheGraph.getOffsetUpToElement(event.currentTarget, event.target);
-      var x = (event.layerX || event.clientX || 0) - offset.left;
-      var y = (event.layerY || event.clientY || 0) - offset.top;
+      var x = (event.layerX || event.clientX || 0);
+      var y = (event.layerY || event.clientY || 0);
 
       var scale = this.props.app.state.scale;
       this.setState({

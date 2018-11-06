@@ -205,9 +205,8 @@ module.exports.register = function (context) {
 
       // Safari is wheelDeltaY
       this.zoomFactor += event.deltaY ? event.deltaY : 0-event.wheelDeltaY;
-      var offset = TheGraph.getOffsetUpToElement(event.currentTarget, event.target);
-      this.zoomX = (event.layerX || event.clientX || 0) - offset.left;
-      this.zoomY = (event.layerY || event.clientY || 0) - offset.top;
+      this.zoomX = (event.layerX || event.clientX || 0);
+      this.zoomY = (event.layerY || event.clientY || 0);
 
       requestAnimationFrame(this.scheduleWheelZoom);
     },
@@ -498,9 +497,8 @@ module.exports.register = function (context) {
       if (event.preventTap) { event.preventTap(); }
 
       // Get mouse position
-      var offset = TheGraph.getOffsetUpToElement(event.currentTarget, event.target);
-      var x = (event.layerX || event.clientX || 0) - offset.left;
-      var y = (event.layerY || event.clientY || 0) - offset.top;
+      var x = (event.layerX || event.clientX || 0);
+      var y = (event.layerY || event.clientY || 0);
       if (event.touches && event.touches.length) {
         x = event.touches[0].clientX;
         y = event.touches[0].clientY;
