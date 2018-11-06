@@ -7,14 +7,11 @@ var Tooltip = {
   showTooltip: function (event) {
     if ( !this.shouldShowTooltip() ) { return; }
 
-    var offset = TheGraph.getOffsetUpToElement(event.currentTarget, event.target);
-    var x = (event.layerX || event.clientX || 0) - offset.left;
-    var y = (event.layerY || event.clientY || 0) - offset.top;
     var tooltipEvent = new CustomEvent('the-graph-tooltip', { 
       detail: {
         tooltip: this.props.label,
-        x: x,
-        y: y
+        x: event.clientX,
+        y: event.clientY
       }, 
       bubbles: true
     });
